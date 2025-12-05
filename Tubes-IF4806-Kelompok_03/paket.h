@@ -8,25 +8,25 @@ struct infotypePaket{
     string idPaket;
 };
 
-typedef struct elmPaket *adressPaket;
+typedef struct elmPaket *addressPaket;
 
 struct elmPaket{
-    infoPaket info;
-    adressPaket next;
-    adressPaket prev;
+    infotypePaket info;
+    addressPaket next;
+    addressPaket prev;
 };
 
 struct listPaket{
-    adressPaket first;
-    adressPaket last
+    addressPaket first;
+    addressPaket last;
 };
 
 void createListPaket(listPaket &L);
-adressPaket allocatePaket(infotypePaket x);
-void insertFirstPaket(listPaket &L, adressPaket p);
-void insertLastPaket(listPaket &L, adressPaket p);
-void deleteFirstPaket(listPaket &L, adressPaket &p);
-void deleteLastPaket(listPaket &L, adressPaket &p);
+addressPaket allocatePaket(infotypePaket x);
+void insertFirstPaket(listPaket &L, addressPaket p);
+void insertLastPaket(listPaket &L, addressPaket p);
+void deleteFirstPaket(listPaket &L, addressPaket &p);
+void deleteLastPaket(listPaket &L, addressPaket &p);
 void printPaket(listPaket L);
-adressPaket findPaket(listPaket L, string namaPaket);
+addressPaket findPaket(listPaket L, string namaPaket);
 #endif // PAKET_H_INCLUDED
