@@ -32,7 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="kurir.h" />
+		<Unit filename="kurir_103012400082.cpp" />
+		<Unit filename="kurir_103012400277.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="paket.h" />
+		<Unit filename="paket_103012400082.cpp" />
+		<Unit filename="paket_103012400277.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
