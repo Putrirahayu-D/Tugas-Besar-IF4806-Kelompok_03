@@ -31,6 +31,7 @@ addressKurir findKurir(listKurir L, string namaKurir);
 void printKurir(listKurir L);
 void tambahPaketKeKurir(addressKurir k, infotypePaket x);
 void printPaketKurir(addressKurir k);
-
+void deleteKurir(listKurir &L, string namaKurir);
+void deleteKurirBesertaPaket(listKurir &L, string namaKurir);
 #endif
 
