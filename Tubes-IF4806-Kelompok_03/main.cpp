@@ -1,6 +1,5 @@
 #include <iostream>
-#include "kurir.h"
-#include "paket.h"
+#include "header.h"
 using namespace std;
 
 int main() {
