@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include "paket.h"
+#include "header.h"
 
 void deleteFirstPaket(listPaket &L, addressPaket &p) {
     if (L.first == NULL) {
