@@ -1,73 +1,86 @@
 #include <iostream>
 using namespace std;
-#include "paket.h"
+#include "header.h"
 
-void createListPaket(listPaket &L) {
-    L.first = NULL;
-    L.last = NULL;
-}
-
-addressPaket allocatePaket(infotypePaket x) {
+addressPaket createElmPaket(infotypePaket x) {
     addressPaket p = new elmPaket;
     p->info = x;
-    p->next = NULL;
-    p->prev = NULL;
+    p->next = nullptr;
+    p->prev = nullptr;
     return p;
 }
 
-void insertFirstPaket(listPaket &L, addressPaket p) {
-    if (L.first == NULL) {
-        L.first = p;
-        L.last = p;
+void insertFirstPaket(addressKurir &K, addressPaket p) {
+    if (isEmptyPaket(K)) {
+        K->firstPaket = p;
     } else {
-        p->next = L.first;
-        L.first->prev = p;
-        L.first = p;
+        p->next = K->firstPaket;
+        K->firstPaket->prev = p;
+        K->firstPaket = p;
     }
 }
 
-void insertLastPaket(listPaket &L, addressPaket p) {
-    if (L.first == NULL) {
-        L.first = p;
-        L.last = p;
+void insertLastPaket(addressKurir &K, addressPaket p) {
+   if (isEmptyPaket(K)){
+        K->firstPaket = p;
     } else {
-        L.last->next = p;
-        p->prev = L.last;
-        L.last = p;
-    }
-}
-void deletePaketByName(listPaket &L, string namaPaket) {
-    addressPaket p = L.first;
+        addressPaket q = K->firstPaket;
 
-    while (p != NULL) {
-        if (p->info.namaPaket == namaPaket) {
-
-            if (p == L.first && p == L.last) {
-                L.first = NULL;
-                L.last = NULL;
-            }
-            else if (p == L.first) {
-                L.first = p->next;
-                L.first->prev = NULL;
-                p->next = NULL;
-            }
-            else if (p == L.last) {
-                L.last = p->prev;
-                L.last->next = NULL;
-                p->prev = NULL;
-            }
-            else {
-                p->prev->next = p->next;
-                p->next->prev = p->prev;
-                p->next = NULL;
-                p->prev = NULL;
-            }
-
-            return;
+        while (q->next != nullptr) {
+            q = q->next;
         }
-        p = p->next;
+
+        q->next = p;
+        p->prev = q;
     }
 }
 
+void deletePaketByName(addressKurir &K, string namaPaket) {
+    if (K == nullptr || K -> firstPaket == nullptr) {
+        cout << "Kurir tidak ditemukan atau list paket kosong." << endl;
+        return;
+    }
+    addressPaket p = findPaket(K, namaPaket);
+    if (p == nullptr) {
+        cout << "Paket '" << namaPaket << "' tidak ditemukan pada kurir " << K->info.namaKurir << "." << endl;
+        return;
+    }
+    if (p -> prev == nullptr) {
+        K -> firstPaket = p -> next;
+        if (K -> firstPaket != nullptr) {
+            K -> firstPaket -> prev = nullptr;
+        }
+    }
+    else if (p -> next == nullptr) {
+        p -> prev -> next = nullptr;
+    }
+    else {
+        p -> prev -> next = p -> next;
+        p -> next -> prev = p -> prev;
+    }
+    p -> next = nullptr;
+    p -> prev = nullptr;
+    delete(p);
 
+    cout << "Paket berhasil dihapus." << endl;
+}
 
+float hitungHarga(float berat) {
+    if (berat <= 1) {
+        return 10000;
+    }else if (berat <= 3){
+        return 25000;
+    }else if (berat <= 5){
+        return 40000;
+    }
+    return 50000 + (berat - 5) * 5000;
+}
+void updateStatusPaket(addressKurir K, string namaPaket, string statusBaru) {
+    addressPaket p = findPaket(K, namaPaket);
+    if (p != nullptr) {
+        p->info.statusPaket = statusBaru;
+        cout << "Status paket berhasil diperbarui.\n";
+    } else {
+        cout << "Paket tidak ditemukan.\n";
+    }
+}
