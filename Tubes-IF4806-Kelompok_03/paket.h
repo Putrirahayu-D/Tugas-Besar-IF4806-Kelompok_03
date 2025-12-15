@@ -20,7 +20,7 @@ struct listPaket{
     addressPaket first;
     addressPaket last;
 };
-
+void deletePaketByName(listPaket &L, string namaPaket);
 void createListPaket(listPaket &L);
 addressPaket allocatePaket(infotypePaket x);
 void insertFirstPaket(listPaket &L, addressPaket p);
