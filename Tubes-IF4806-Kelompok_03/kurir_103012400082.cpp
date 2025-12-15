@@ -9,6 +9,7 @@ addressKurir allocateKurir(infotypeKurir x){
     addressKurir p = new elmKurir;
     p -> info = x;
     p -> next = nullptr;
+    p -> firstPaket = nullptr;
     return p;
 }
 

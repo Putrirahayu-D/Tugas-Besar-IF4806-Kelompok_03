@@ -76,11 +76,32 @@ float hitungHarga(float berat) {
     return 50000 + (berat - 5) * 5000;
 }
 void updateStatusPaket(addressKurir K, string namaPaket, string statusBaru) {
+    if (K == nullptr) {
+        cout << "Kurir tidak valid.\n";
+        return;
+    }
+
     addressPaket p = findPaket(K, namaPaket);
     if (p != nullptr) {
         p->info.statusPaket = statusBaru;
         cout << "Status paket berhasil diperbarui.\n";
     } else {
-        cout << "Paket tidak ditemukan.\n";
+        cout << "Paket '" << namaPaket << "' tidak ditemukan pada kurir "
+             << K->info.namaKurir << ".\n";
     }
 }
+addressPaket findPaketByResi(listKurir L, string resi) {
+    addressKurir k = L.first;
+    while (k != nullptr) {
+        addressPaket p = k->firstPaket;
+        while (p != nullptr) {
+            if (p->info.nomorResi == resi) {
+                return p;
+            }
+            p = p->next;
+        }
+        k = k->next;
+    }
+    return nullptr;
+}
+

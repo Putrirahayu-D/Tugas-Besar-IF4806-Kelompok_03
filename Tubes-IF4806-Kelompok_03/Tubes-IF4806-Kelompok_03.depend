@@ -1,13 +1,14 @@
 # depslib dependency file v1.0
-1764893274 source:c:\users\asus\onedrive\documents\tugas-besar-if4806-kelompok_03\tubes-if4806-kelompok_03\kurir_103012400082.cpp
-	"kurir.h"
+1765802344 source:c:\users\asus\onedrive\documents\tugas-besar-if4806-kelompok_03\tubes-if4806-kelompok_03\kurir_103012400082.cpp
+	"header.h"
 
-1764893059 source:c:\users\asus\onedrive\documents\tugas-besar-if4806-kelompok_03\tubes-if4806-kelompok_03\paket_103012400082.cpp
+1765782954 source:c:\users\asus\onedrive\documents\tugas-besar-if4806-kelompok_03\tubes-if4806-kelompok_03\paket_103012400082.cpp
+	"header.h"
 	<iostream>
-	"paket.h"
 
-1764910045 source:c:\users\asus\onedrive\documents\tugas-besar-if4806-kelompok_03\tubes-if4806-kelompok_03\kurir_103012400277.cpp
-	"kurir.h"
+1765782898 source:c:\users\asus\onedrive\documents\tugas-besar-if4806-kelompok_03\tubes-if4806-kelompok_03\kurir_103012400277.cpp
+	"header.h"
+	<iostream>
 
 1764910036 c:\users\asus\onedrive\documents\tugas-besar-if4806-kelompok_03\tubes-if4806-kelompok_03\kurir.h
 	<iostream>
@@ -17,12 +18,15 @@
 1764909843 c:\users\asus\onedrive\documents\tugas-besar-if4806-kelompok_03\tubes-if4806-kelompok_03\paket.h
 	<iostream>
 
-1764750002 source:c:\users\asus\onedrive\documents\tugas-besar-if4806-kelompok_03\tubes-if4806-kelompok_03\main.cpp
+1765803119 source:c:\users\asus\onedrive\documents\tugas-besar-if4806-kelompok_03\tubes-if4806-kelompok_03\main.cpp
 	<iostream>
-	"kurir.h"
-	"paket.h"
+	"header.h"
 
-1764909810 source:c:\users\asus\onedrive\documents\tugas-besar-if4806-kelompok_03\tubes-if4806-kelompok_03\paket_103012400277.cpp
+1765803104 source:c:\users\asus\onedrive\documents\tugas-besar-if4806-kelompok_03\tubes-if4806-kelompok_03\paket_103012400277.cpp
 	<iostream>
-	"paket.h"
+	"header.h"
+
+1765793390 c:\users\asus\onedrive\documents\tugas-besar-if4806-kelompok_03\tubes-if4806-kelompok_03\header.h
+	<iostream>
+	<string>
 

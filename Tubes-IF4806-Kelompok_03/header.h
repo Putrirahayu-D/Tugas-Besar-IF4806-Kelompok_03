@@ -29,6 +29,7 @@ struct listKurir {
 struct infotypePaket {
     string namaPaket;
     string idPaket;
+    string nomorResi;
     float berat;
     float harga;
     string statusPaket;
@@ -83,7 +84,7 @@ void deletePaketByName(addressKurir &K, string namaPaket);
 void printPaket(addressKurir K);
 addressPaket findPaket(addressKurir K, string namaPaket);
 void updateStatusPaket(addressKurir K, string namaPaket, string statusBaru);
-
+addressPaket findPaketByResi(listKurir L, string resi);
 float hitungHarga(float berat);
 
 #endif // HEADER_H_INCLUDED
