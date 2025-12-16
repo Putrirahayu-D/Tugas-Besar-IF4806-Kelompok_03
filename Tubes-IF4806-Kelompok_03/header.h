@@ -82,6 +82,7 @@ void deleteLastPaket(addressKurir &K, addressPaket &p);
 void deleteAfterPaket(addressKurir &K, addressPaket &p, addressPaket prec);
 void deletePaketByName(addressKurir &K, string namaPaket);
 void printPaket(addressKurir K);
+void printTotalPaket(listKurir L);
 addressPaket findPaket(addressKurir K, string namaPaket);
 void updateStatusPaket(addressKurir K, string namaPaket, string statusBaru);
 addressPaket findPaketByResi(listKurir L, string resi);

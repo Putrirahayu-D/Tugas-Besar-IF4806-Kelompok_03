@@ -31,6 +31,8 @@ void deleteFirstPaket(addressKurir &K, addressPaket &p){
         }
         p -> next = nullptr;
         p -> prev = nullptr;
+        delete p;
+        p = nullptr;
 
     } else {
         p = nullptr;
@@ -50,6 +52,8 @@ void deleteLastPaket(addressKurir &K, addressPaket &p){
             p = temp;
             temp -> prev -> next = nullptr;
             p -> prev = nullptr;
+            delete p;
+            p = nullptr;
         }
     } else {
         p = nullptr;
@@ -65,6 +69,8 @@ void deleteAfterPaket(addressKurir &K, addressPaket &p, addressPaket prec){
         }
         p -> next = nullptr;
         p -> prev = nullptr;
+        delete p;
+        p = nullptr;
     } else {
         p = nullptr;
     }
@@ -83,14 +89,33 @@ addressPaket findPaket(addressKurir K, string namaPaket){
 }
 
 void printPaket(addressKurir K){
-    addressPaket p = K->firstPaket;
-    while (p != nullptr) {
-        cout << "ID Paket   : " << p->info.idPaket << endl;
-        cout << "Nama Paket : " << p->info.namaPaket << endl;
-        cout << "Status     : " << p->info.statusPaket << endl;
-        cout << "Berat (kg) : " << p->info.berat << endl;
-        cout << "Harga      : " << p->info.harga << endl;
-        cout << "--------------------------\n";
-        p = p->next;
+    addressPaket p;
+    p = K -> firstPaket;
+    while (p != NULL) {
+        cout << p -> info.idPaket << " - " << p -> info.namaPaket << endl;
+        p = p -> next;
     }
+}
+
+void printTotalPaket(listKurir L) {
+    addressKurir k = L.first;
+    int jumlahPaket = 0;
+    while (k != nullptr) {
+        addressPaket p = k -> firstPaket;
+        while (p != nullptr) {
+            jumlahPaket++;
+            cout << "Paket ke-" << jumlahPaket << endl;
+            cout << "Kurir        : " << k->info.namaKurir << endl;
+            cout << "ID Paket     : " << p->info.idPaket << endl;
+            cout << "Nama Paket   : " << p->info.namaPaket << endl;
+            cout << "Nomor Resi   : " << p->info.nomorResi << endl;
+            cout << "Berat (kg)   : " << p->info.berat << endl;
+            cout << "Harga        : " << p->info.harga << endl;
+            cout << "Status       : " << p->info.statusPaket << endl;
+            cout << "-------------------------------\n";
+            p = p->next;
+        }
+        k = k -> next;
+    }
+    cout << "Total Paket Terdaftar: " << jumlahPaket << endl;
 }

@@ -20,17 +20,19 @@ int main() {
         int pilihan = -1;
         while (pilihan != 0) {
             cout << "\n----- MENU ADMIN -----\n";
-            cout << "1. Tambah Kurir (insertLast)\n";
+           cout << "1. Tambah Kurir (insertLast)\n";
             cout << "2. Tampilkan Semua Kurir\n";
             cout << "3. Tambah Paket ke Kurir (insertLast paket)\n";
             cout << "4. Tampilkan Paket milik Kurir\n";
-            cout << "5. Hapus Kurir (tanpa paket)\n";
-            cout << "6. Hapus Kurir beserta paketnya\n";
-            cout << "7. Hapus Paket dari Kurir tertentu\n";
-            cout << "8. Tambah Kurir (insertFirst)\n";
-            cout << "9. Insert Kurir setelah Kurir tertentu\n";
-            cout << "10.Update status paket\n";
+            cout << "5. Tampilkan Semua Paket\n";
+            cout << "6. Hapus Kurir (tanpa paket)\n";
+            cout << "7. Hapus Kurir beserta paketnya\n";
+            cout << "8. Hapus Paket dari Kurir tertentu\n";
+            cout << "9. Tambah Kurir (insertFirst)\n";
+            cout << "10. Insert Kurir setelah Kurir tertentu\n";
+            cout << "11.Update status paket\n";
             cout << "0. kembali ke halaman utama\n";
+
             cout << "Pilih menu: ";
             cin >> pilihan;
 
@@ -89,17 +91,24 @@ int main() {
                     cout << "\n--- Paket milik kurir " << k->info.namaKurir << " ---\n";
                     printPaketKurir(k);
                 }
-            }else if (pilihan == 5) {
-                string nama;
-                cout << "Masukkan nama kurir: ";
-                cin >> nama;
-                deleteKurirByName(LK, nama);
+            }else if (pilihan == 5){
+                if (LK.first == nullptr){
+                    cout << "Belum ada paket yang terdaftar.\n";
+                } else {
+                    cout << "\n--- Daftar Paket ---\n";
+                    printTotalPaket(LK);
+                }
             }else if (pilihan == 6) {
                 string nama;
                 cout << "Masukkan nama kurir: ";
                 cin >> nama;
-                deleteKurirBesertaPaket(LK, nama);
+                deleteKurirByName(LK, nama);
             }else if (pilihan == 7) {
+                string nama;
+                cout << "Masukkan nama kurir: ";
+                cin >> nama;
+                deleteKurirBesertaPaket(LK, nama);
+            }else if (pilihan == 8) {
                 string nama;
                 cout << "Masukkan nama kurir: ";
                 cin >> nama;
@@ -114,7 +123,7 @@ int main() {
                     deletePaketByName(k, paket);
                     cout << "Paket berhasil dihapus (jika ada).\n";
                 }
-            }else if (pilihan == 8) {
+            }else if (pilihan == 9) {
                 infotypeKurir K;
                 cout << "Masukkan nama kurir (tanpa spasi): ";
                 cin >> K.namaKurir;
@@ -123,7 +132,7 @@ int main() {
                 addressKurir p = allocateKurir(K);
                 insertFirstKurir(LK, p);
                 cout << "Kurir berhasil ditambahkan (insertFirst).\n";
-            }else if (pilihan == 9) {
+            }else if (pilihan == 10) {
                 string target;
                 cout << "Masukkan nama kurir yang ingin disisipi setelahnya: ";
                 cin >> target;
@@ -143,7 +152,7 @@ int main() {
                     cout << "Kurir target tidak ditemukan!\n";
                 }
                 cout << "Insert setelah kurir " << target << " selesai (jika target ada).\n";
-             }else if (pilihan == 10) {
+             }else if (pilihan == 11) {
                 string kurir, paket, status;
                 int x;
                 cout << "Nama Kurir: ";
@@ -179,6 +188,7 @@ int main() {
                 }
             }
         }
+
     }else if (menu == 2) {
         int pilihUser = -1;
         while (pilihUser != 0) {
