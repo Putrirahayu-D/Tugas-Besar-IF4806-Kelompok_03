@@ -7,10 +7,12 @@ int main() {
     listKurir LK;
     createListKurir(LK);
 
-    int menu;
+    int menu = -1;
+    while (menu != 0){
         cout << "===== LOGIN =====\n";
         cout << "1. Masuk sebagai Admin\n";
         cout << "2. Masuk sebagai User\n";
+        cout << "0. Keluar Program\n";
         cout << "Pilih: ";
         cin >> menu;
 
@@ -28,7 +30,7 @@ int main() {
             cout << "8. Tambah Kurir (insertFirst)\n";
             cout << "9. Insert Kurir setelah Kurir tertentu\n";
             cout << "10.Update status paket\n";
-            cout << "0. Keluar\n";
+            cout << "0. kembali ke halaman utama\n";
             cout << "Pilih menu: ";
             cin >> pilihan;
 
@@ -205,5 +207,7 @@ int main() {
         }
         cout << "Selamat Tinggal Terima Kasih!.\n";
     }
+    }
      return 0;
+
 }
